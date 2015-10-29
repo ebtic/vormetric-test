@@ -10,8 +10,8 @@
 #
 # Sample Usage:
 #   (See test/init.pp)
-class vormetric-test::agent(
-) inherits vormetric-test::params {
+class vormetric_test::agent(
+) inherits vormetric_test::params {
 
   # perform this only when node tagging is completed
   #if $appcara::params::server {
@@ -19,16 +19,16 @@ class vormetric-test::agent(
     case $::operatingsystem {
         # Linux-based computers
         'debian','ubuntu','redhat','centos','Amazon': {
-            class { 'vormetric-test::agent::linux::install': }
-            class { 'vormetric-test::agent::linux::config': }
-            Class['vormetric-test::agent::linux::install']
-              -> Class['vormetric-test::agent::linux::config']
+            class { 'vormetric_test::agent::linux::install': }
+            class { 'vormetric_test::agent::linux::config': }
+            Class['vormetric_test::agent::linux::install']
+              -> Class['vormetric_test::agent::linux::config']
         }
 		'windows': {
-            class { 'vormetric-test::agent::windows::install': }
-            class { 'vormetric-test::agent::windows::config': }
-            Class['vormetric-test::agent::windows::install']
-              -> Class['vormetric-test::agent::windows::config']
+            class { 'vormetric_test::agent::windows::install': }
+            class { 'vormetric_test::agent::windows::config': }
+            Class['vormetric_test::agent::windows::install']
+              -> Class['vormetric_test::agent::windows::config']
 	    }
         # Other OS
         default: {

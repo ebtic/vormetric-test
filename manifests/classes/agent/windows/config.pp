@@ -1,4 +1,4 @@
-class vormetric-test::agent::windows::config() {
+class vormetric_test::agent::windows::config() {
 
   #Do nothing, reserved!   
 }

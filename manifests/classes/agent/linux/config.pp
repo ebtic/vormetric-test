@@ -1,4 +1,4 @@
-class vormetric-test::agent::linux::config() {
+class vormetric_test::agent::linux::config() {
 
   #Do nothing, reserved!
 }

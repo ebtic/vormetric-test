@@ -1,13 +1,13 @@
 {
     "allow_multiple": false,
-    "code": "vormetric-test",
+    "code": "vormetric_test",
     "description": "Vormetric Data Security Agent",
-    "name": "vormetric-test",
+    "name": "vormetric_test",
     "publisher": "app360",
     "role": "library",
     "tags": [],
     "updated_at": 1415937368,
     "website": "http://www.vormetric.com/",
     "dependencies": [],
-    "puppet_class": "vormetric-test"
+    "puppet_class": "vormetric_test"
 }

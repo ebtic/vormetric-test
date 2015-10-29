@@ -1,4 +1,4 @@
-class vormetric-test::agent::windows::install (
+class vormetric_test::agent::windows::install (
 ) {
 
   #install python
