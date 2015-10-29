@@ -9,5 +9,5 @@
     "updated_at": 1415937367,
     "website": "http://www.vormetric.com/",
     "dependencies": [],
-    "puppet_class": "vormetric"
+    "puppet_class": "vormetric-test"
 }
