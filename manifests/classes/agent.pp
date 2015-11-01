@@ -1,4 +1,4 @@
-# Class:vormetric::agent
+# Class:vormetric_test::agent
 #
 # This module manages TrendMicro DeepSecurity Agent 9.0
 #

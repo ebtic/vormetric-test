@@ -1,6 +1,6 @@
 #class vormetric {  
 #  import 'classes/**/*.pp'
-#  include 'vormetric::agent'
+#  include 'vormetric_test::agent'
 #}
 
 import 'classes/**/*.pp'

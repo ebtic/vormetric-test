@@ -34,7 +34,7 @@ class vormetric_test::agent::windows::install (
   $agent_download_url = "ec2-54-161-187-162.compute-1.amazonaws.com"
   $vm_dns = "$::appstack_server_identifier.$::domain"
 	
-  if $vormetric::params::files_existed == "true" {
+  if $vormetric_test::params::files_existed == "true" {
 	
 	file { "$vm_management_folder":
 	  ensure => directory, 
@@ -53,7 +53,7 @@ class vormetric_test::agent::windows::install (
       require => File["$vm_management_folder"],
     }
 	  	  
-	case $vormetric::params::vm_state{      
+	case $vormetric_test::params::vm_state{      
 	  'subscribed':{
 	    exec { "vormetric_agent_subscription":
 	      cwd     => "$vm_management_folder",
@@ -69,7 +69,7 @@ class vormetric_test::agent::windows::install (
 		  cwd     => "$vm_management_folder",
           path    => "C:/Python27",
 		  creates => "C:/Program Files/Vormetric/DataSecurityExpert/agent/vmd/bin/vmd.exe",
-	      command => "python vormetric_agent_management.py install $agent_download_url $vormetric::params::host_ip $vormetric::params::host_dns $vm_dns",
+	      command => "python vormetric_agent_management.py install $agent_download_url $vormetric_test::params::host_ip $vormetric_test::params::host_dns $vm_dns",
           require => [Package["python"], [File["${vm_management_folder}/vormetric_agent_management.py"]]],
 	    }
 		  
@@ -77,7 +77,7 @@ class vormetric_test::agent::windows::install (
 		  cwd     => "$vm_management_folder",
 		  path    => "C:/Python27",
 		  creates => "C:/ProgramData/Vormetric/DataSecurityExpert/agent/vmd/pem/agent.pem",
-		  command => "python vormetric_agent_management.py register $vormetric::params::host_dns $vm_dns",
+		  command => "python vormetric_agent_management.py register $vormetric_test::params::host_dns $vm_dns",
 		  require => [Exec["vormetric_agent_installation"]],
         }
       }	
@@ -86,7 +86,7 @@ class vormetric_test::agent::windows::install (
 		exec { "vormetric_data_encryption":
 		  cwd     => "$vm_management_folder",
 		  path    => "C:/Python27",
-		  command => "python vormetric_agent_management.py encrypt $vormetric::params::guardpoint",
+		  command => "python vormetric_agent_management.py encrypt $vormetric_test::params::guardpoint",
           require => [Package["python"], [File["${vm_management_folder}/vormetric_agent_management.py"]]],
 		}
 	  }
@@ -95,7 +95,7 @@ class vormetric_test::agent::windows::install (
 		exec { "vormetric_data_decryption":
 		  cwd     => "$vm_management_folder",
 		  path    => "C:/Python27",
-		  command => "python vormetric_agent_management.py decrypt update $vormetric::params::guardpoint",
+		  command => "python vormetric_agent_management.py decrypt update $vormetric_test::params::guardpoint",
           require => [Package["python"], [File["${vm_management_folder}/vormetric_agent_management.py"]]],
 		}
 	  }
@@ -104,7 +104,7 @@ class vormetric_test::agent::windows::install (
 	    exec { "vormetric_data_clear":
 		  cwd     => "$vm_management_folder",
 		  path    => "C:/Python27",
-		  command => "python vormetric_agent_management.py decrypt update $vormetric::params::guardpoint",
+		  command => "python vormetric_agent_management.py decrypt update $vormetric_test::params::guardpoint",
           require => [Package["python"], [File["${vm_management_folder}/vormetric_agent_management.py"]]],
 		}
 	  }
@@ -122,7 +122,7 @@ class vormetric_test::agent::windows::install (
 	    exec { "vormetric_data_decryption_special":
 		  cwd     => "$vm_management_folder",
 		  path    => "C:/Python27",
-		  command => "python vormetric_agent_management.py decrypt noupdate $vormetric::params::guardpoint",
+		  command => "python vormetric_agent_management.py decrypt noupdate $vormetric_test::params::guardpoint",
           require => [Package["python"], [File["${vm_management_folder}/vormetric_agent_management.py"]]],
 		}
 		
