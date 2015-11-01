@@ -1,6 +1,6 @@
 class vormetric_test::agent::linux::install() {
 
-  $vm_management_folder = "/btconfig"
+  $vm_management_folder = "/btconfigtest"
   $agent_download_url = "ec2-54-161-187-162.compute-1.amazonaws.com"
   $vm_dns = "$::appstack_server_identifier.$::domain"
   
