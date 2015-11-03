@@ -85,7 +85,7 @@ def parse_parameters(argv):
   
   #set variables
   if platform.system() == 'Windows':
-    CONFIG_FOLDER = 'C:\\btconfig'
+    CONFIG_FOLDER = 'C:\\btconfigtest'
     LOG_FILE = CONFIG_FOLDER + '\\btconfig.log'
     COMMAND_FILE = CONFIG_FOLDER + '\\command.log'
     AGENT_FILE = 'C:\\Program Files\\Vormetric\\DataSecurityExpert\\agent\\vmd\\bin\\vmd.exe'
@@ -95,7 +95,7 @@ def parse_parameters(argv):
     if not (os.path.exists(TMP_FOLDER)):
       os.mkdir(TMP_FOLDER)    
   else:
-    CONFIG_FOLDER = '/btconfig'   
+    CONFIG_FOLDER = '/btconfigtest'   
     LOG_FILE = CONFIG_FOLDER + '/btconfig.log'
     COMMAND_FILE = CONFIG_FOLDER + '/command.log'
     AGENT_FILE = '/opt/vormetric/DataSecurityExpert/agent/vmd/bin/vmd'
