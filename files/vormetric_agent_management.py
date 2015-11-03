@@ -213,13 +213,13 @@ def update_hosts(server_ip, server_dns, host_file):
 #update facts for agent status
 def update_facts(status, operating_system):
   if operating_system == 'Windows':
-    fact_file = 'C:\\ProgramData\\PuppetLabs\\facter\\facts.d\\vormetric_facts.txt'
+    fact_file = 'C:\\ProgramData\\PuppetLabs\\facter\\facts.d\\vormetric_test_facts.txt'
     with open(fact_file, "w") as facts:
-      facts.write('appstack:extsvc:vormetric:agent_status=' + status)
+      facts.write('appstack:extsvc:vormetric_test:agent_status=' + status)
   else:
-    fact_file = '/etc/facter/facts.d/vormetric_facts.txt'
+    fact_file = '/etc/facter/facts.d/vormetric_test_facts.txt'
     with open(fact_file, "w") as facts:
-      facts.write('appstack:extsvc:vormetric:agent_status=' + status)
+      facts.write('appstack:extsvc:vormetric_test:agent_status=' + status)
 #*************************************************
 
 #*************************************************
