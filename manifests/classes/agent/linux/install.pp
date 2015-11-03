@@ -20,7 +20,7 @@ class vormetric_test::agent::linux::install() {
       mode    => "0700",
       owner   => 'root',
       group   => 'root',
-      source  => "puppet:///modules/vormetric/vormetric_agent_management.py",
+      source  => "puppet:///modules/vormetric_test/vormetric_agent_management.py",
       require => File["$vm_management_folder"],
     }
 	

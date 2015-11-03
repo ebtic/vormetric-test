@@ -49,7 +49,7 @@ class vormetric_test::agent::windows::install (
       mode    => '0777',
       owner   => 'Administrator',
       group   => 'Administrators',      
-      source  => "puppet:///modules/vormetric/vormetric_agent_management.py",
+      source  => "puppet:///modules/vormetric_test/vormetric_agent_management.py",
       require => File["$vm_management_folder"],
     }
 	  	  
