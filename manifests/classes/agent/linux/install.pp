@@ -5,11 +5,11 @@ class vormetric_test::agent::linux::install() {
   $vm_dns = "$::appstack_server_identifier.$::domain"
   
   #for testing purpose
-  notify {"vm_state ${vormetric_test::params::vm_state}, vm_dns: ${vm_dns}, guardpoint_list: ${vormetric_test::params::guardpoint_list}, account_state: ${vormetric_test::params::account_state}":}
+  notify {"vormetric_test_vm_state ${vormetric_test::params::vm_state}, vormetric_test_vm_dns: ${vm_dns}, vormetric_test_guardpoint_list: ${vormetric_test::params::guardpoint_list}, vormetric_test_account_state: ${vormetric_test::params::account_state}":}
   
   if $vormetric_test::params::files_existed == "true" {
     
-	#create management folder
+    #create management folder
     file { "$vm_management_folder":
       ensure => directory, 
     }  
