@@ -14,7 +14,7 @@ class vormetric_test::params {
   
   if $appcara::params::account{
     $acct_extsvc_option = $appcara::params::account["extension_service_option"]
-    notify {"acct_extsvc_option ${acct_extsvc_option}":}
+    notify {"acct_extsvc_option_vormetric_test ${acct_extsvc_option}":}
     if $acct_extsvc_option {
       $acct_vormetric_option = $acct_extsvc_option['vormetric_test']
       if $acct_vormetric_option {
@@ -28,7 +28,7 @@ class vormetric_test::params {
   
   if $appcara::params::server {
     $svr_extsvc_option = $appcara::params::server["extension_service_option"]
-    notify {"svr_extsvc_option ${svr_extsvc_option}":}
+    notify {"svr_extsvc_option_vormetric_test ${svr_extsvc_option}":}
     if $svr_extsvc_option {
       $svr_vormetric_option = $svr_extsvc_option['vormetric_test']
       if $svr_vormetric_option {
