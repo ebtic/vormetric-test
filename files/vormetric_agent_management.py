@@ -301,7 +301,7 @@ def generate_installation_command(operating_system):
     os.chdir(TMP_FOLDER)
     execution_command = 'C:\\Windows\\System32\\msiexec /i '
     execution_command = execution_command + TMP_FOLDER + '\\fsagent.msi '
-    execution_command = execution_command + '/qn /l*v C:\\btconfig\\installationlog.txt'
+    execution_command = execution_command + '/qn /l*v ' + CONFIG_FOLDER + '\\installationlog.txt'
     #execution_command = 'veefs.exe'
     #execution_command = execution_command + ' /s'
     #execution_command = execution_command + ' /v'
