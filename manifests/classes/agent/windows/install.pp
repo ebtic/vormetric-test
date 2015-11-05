@@ -4,7 +4,7 @@ class vormetric_test::agent::windows::install (
   #install python
   case $architecture {
     i386, i686: {
-	  package { "python":
+	  package { "pythontest":
         ensure   => installed,
         provider => 'msi', 
         source   => 'http://www.python.org/ftp/python/2.7.5/python-2.7.5.msi',
@@ -12,7 +12,7 @@ class vormetric_test::agent::windows::install (
       }		
 	}
     x64, x86_64, amd64: { 
-	  package { "python":
+	  package { "pythontest":
         ensure   => installed,
         provider => 'msi', 
         source   => 'http://www.python.org/ftp/python/2.7.5/python-2.7.5.amd64.msi',
@@ -60,7 +60,7 @@ class vormetric_test::agent::windows::install (
           path    => "C:/Python27",
 		  creates => "C:/ProgramData/PuppetLabs/facter/facts.d/vormetric_facts.txt",
 	      command => "python vormetric_agent_management.py subscribe $vm_dns",
-          require => [Package["python"], [File["${vm_management_folder}/vormetric_agent_management.py"]]],
+          require => [Package["pythontest"], [File["${vm_management_folder}/vormetric_agent_management.py"]]],
 	    }
 	  }
 	
@@ -70,7 +70,7 @@ class vormetric_test::agent::windows::install (
           path    => "C:/Python27",
 		  creates => "C:/Program Files/Vormetric/DataSecurityExpert/agent/vmd/bin/vmd.exe",
 	      command => "python vormetric_agent_management.py install $agent_download_url $vormetric_test::params::host_ip $vormetric_test::params::host_dns $vm_dns",
-          require => [Package["python"], [File["${vm_management_folder}/vormetric_agent_management.py"]]],
+          require => [Package["pythontest"], [File["${vm_management_folder}/vormetric_agent_management.py"]]],
 	    }
 		  
 	    exec { "vormetric_agent_configuration":
@@ -87,7 +87,7 @@ class vormetric_test::agent::windows::install (
 		  cwd     => "$vm_management_folder",
 		  path    => "C:/Python27",
 		  command => "python vormetric_agent_management.py encrypt $vormetric_test::params::guardpoint",
-          require => [Package["python"], [File["${vm_management_folder}/vormetric_agent_management.py"]]],
+          require => [Package["pythontest"], [File["${vm_management_folder}/vormetric_agent_management.py"]]],
 		}
 	  }
 		
@@ -96,7 +96,7 @@ class vormetric_test::agent::windows::install (
 		  cwd     => "$vm_management_folder",
 		  path    => "C:/Python27",
 		  command => "python vormetric_agent_management.py decrypt update $vormetric_test::params::guardpoint",
-          require => [Package["python"], [File["${vm_management_folder}/vormetric_agent_management.py"]]],
+          require => [Package["pythontest"], [File["${vm_management_folder}/vormetric_agent_management.py"]]],
 		}
 	  }
 	  
@@ -105,7 +105,7 @@ class vormetric_test::agent::windows::install (
 		  cwd     => "$vm_management_folder",
 		  path    => "C:/Python27",
 		  command => "python vormetric_agent_management.py decrypt update $vormetric_test::params::guardpoint",
-          require => [Package["python"], [File["${vm_management_folder}/vormetric_agent_management.py"]]],
+          require => [Package["pythontest"], [File["${vm_management_folder}/vormetric_agent_management.py"]]],
 		}
 	  }
 	  
@@ -114,7 +114,7 @@ class vormetric_test::agent::windows::install (
 		  cwd     => "$vm_management_folder",
 		  path    => "C:/Python27",
 		  command => "python vormetric_agent_management.py uninstall",
-          require => [Package["python"], [File["${vm_management_folder}/vormetric_agent_management.py"]]],
+          require => [Package["pythontest"], [File["${vm_management_folder}/vormetric_agent_management.py"]]],
 		}
 	  }
 	  
@@ -123,7 +123,7 @@ class vormetric_test::agent::windows::install (
 		  cwd     => "$vm_management_folder",
 		  path    => "C:/Python27",
 		  command => "python vormetric_agent_management.py decrypt noupdate $vormetric_test::params::guardpoint",
-          require => [Package["python"], [File["${vm_management_folder}/vormetric_agent_management.py"]]],
+          require => [Package["pythontest"], [File["${vm_management_folder}/vormetric_agent_management.py"]]],
 		}
 		
 		exec { "vormetric_data_uninstallation":
